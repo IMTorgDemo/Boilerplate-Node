@@ -1,0 +1,15 @@
+{
+  "name": "applayout",
+  "version": "1.0.0",
+  "description": "Describes a different way to layout directories and files for Node app",
+  "main": "server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Jason Beach",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.2",
+    "passport": "^0.4.0"
+  }
+}
