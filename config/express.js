@@ -15,7 +15,7 @@ var hbs = exphbs.create({
 
 
 module.exports = function(app) {
-    app.set('views', __dirname + "../../views")
+    app.set('views', path.join(__dirname, "..", "views"))
     app.engine('handlebars', hbs.engine);
     app.set('view engine', 'handlebars');
 
