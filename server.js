@@ -6,7 +6,7 @@ var express = require("express")
 global.appRoot = path.resolve(__dirname)
 var app = express();
 
-require("./config/mongoose")("mongodb://172.17.0.2:27017/users")
+require("./config/mongoose")("mongodb://172.17.0.2:27017/users") //data_store, 172.17.0.2
 require("./config/express")(app)
 require("./config/passport")()
 require("./config/routes/routes.js")(app)

@@ -14,4 +14,4 @@ RUN npm install
 # default port
 EXPOSE $PORT
 
-ENTRYPOINT ["npm", "start"]
+ENTRYPOINT ["npm","run","start-dev"]

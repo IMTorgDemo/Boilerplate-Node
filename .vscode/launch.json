@@ -13,7 +13,7 @@
             "args": [
                 "--no-timeouts",
                 "--colors",
-                "tests/app.test.js"
+                "test/app.test.js"
             ],
             "cwd": "${workspaceRoot}",
             "runtimeExecutable": null,
