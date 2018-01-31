@@ -5,11 +5,23 @@ var cookieParser = require("cookie-parser")
 var logger = require("morgan")
 var flash = require("connect-flash")
 var passport = require("passport")
+var exphbs = require('express-handlebars');
+var path = require("path")
+
+var hbs = exphbs.create({
+    defaultLayout: 'main'
+        //helpers: require('./config/handlebars-helpers')
+});
 
 
 module.exports = function(app) {
     app.set('views', __dirname + "../../views")
-    app.set('view engine', 'handlebars')
+    app.engine('handlebars', hbs.engine);
+    app.set('view engine', 'handlebars');
+
+    var public = path.join(__dirname, '..', 'public')
+    console.log(`Static files served from: ${public}`)
+    app.use(express.static(public));
 
     app.use(logger('dev'))
     app.use(cookieParser())
@@ -19,4 +31,5 @@ module.exports = function(app) {
     app.use(flash())
     app.use(passport.initialize())
     app.use(passport.session())
+
 }

@@ -13,7 +13,7 @@ module.exports = function(app) {
     var router = express.Router()
 
     router.get("/", function(req, res) {
-        res.render("login")
+        res.render("home")
     })
 
     router.get("/login", function(req, res) {
