@@ -1,16 +1,19 @@
-//var mongoose = require("mongoose");
+var mongoose = require("mongoose");
 
 module.exports = function(connectionstring) {
 
-    //mongoose.connect(connectionstring)
+    // Test with json
+    //connectionstring = "../database/users.json"
+    //var db = require(connectionstring)
 
-    connectionstring = "../database/users.json"
-    var db = require(connectionstring)
-        //db.on("error", function(err){console.log(err)})
-        //db.once("open", function(){console.log("connected to db")})
-    if (db) { console.log("connected to db") }
+    mongoose.connect(connectionstring)
+    mongoose.Promise = global.Promise
+    var db = mongoose.connection
 
-
-
+    db.on("error", function(err) { console.log(err) })
+    db.once("open", function() { console.log("connected to db") })
+    if (db) {
+        console.log("connected to db")
+    }
 
 }

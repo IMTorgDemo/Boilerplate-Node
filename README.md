@@ -25,8 +25,12 @@ You can then build and run the Docker image
 
 ```
 $ docker build -t mevn-boiler .
+$ docker images
 $ docker run -it --rm --name mevn-app mevn-boiler
+$ docker ps -a
 ```
+
+`??? DOCKER COMPOSE ???`[ref](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-14-04)
 
 
 ### Docker deploy
@@ -46,14 +50,14 @@ docker pull mongo
 docker run --name data_store -d mongo
 ```
 
-Get the ipaddress using: `docker inspect data_store`
+Get the ipaddress using: `docker inspect data_store | grep "IPAddress" `
 
 Take a look around, if necessary: `docker exec -it data_store mongo`
 
 
 
 
-### WebApp - Mongo Link ????
+### Node - Mongo Db-Connection / Image-Link
 [reference for various docker configurations](http://www.ifdattic.com/how-to-mongodb-nodejs-docker/)
 create a container which has all the required data mounted and is linked to mongo container.
 
@@ -62,21 +66,23 @@ docker run --name web_app --link data_store:mongo -d node_app
 docker run -it --name node -v "$(pwd)":/data --link mongo:mongo -w /data -p 8082:8082 node bash
 ```
 
+```
 // Ways to connect to MongoDb
-// Original connect
-MongoClient.connect('mongodb://localhost:27017/blog', function(err, db) {
-    // ...
-});
-// Connect using environment variables
-MongoClient.connect('mongodb://'+process.env.MONGO_PORT_27017_TCP_ADDR+':'+process.env.MONGO_PORT_27017_TCP_PORT+'/blog', function(err, db) {
-    // ...
-});
-// Connect using hosts entry
-MongoClient.connect('mongodb://mongo:27017/blog', function(err, db) {
-    // ...
-});
+// Same Machine
+con = 'mongodb://localhost:27017/users'
+
+// Mongo in docker, Node on machine
+con = 'mongodb://<containerIPAddress>:27017/users'
+
+// Both Mongo and Node in separate docker containers
+con = 'mongodb://<containerName>:27017/users'
 
 ```
+
+
+
+
+
 
 
 ***
