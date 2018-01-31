@@ -1,3 +1,13 @@
+/* Global
+global._ = require('underscore')
+global.async = require('async')
+global.config = require('./config/env/' + process.env.NODE_ENV)
+
+// load environment variables from .env file
+var dotenv = require('dotenv');
+dotenv.load();*/
+
+// Local
 var express = require("express")
 var expressSession = require("express-session")
 var bodyParser = require("body-parser")

@@ -1,7 +1,9 @@
 console.log("Setting up Authorization")
 
 //require("babel-register")
-var express = require("express");
+var path = require("path")
+var express = require("express")
+global.appRoot = path.resolve(__dirname)
 var app = express();
 
 require("./config/mongoose")("mongodb://localhost/mydemodb")
