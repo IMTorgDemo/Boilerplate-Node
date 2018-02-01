@@ -1,0 +1,6 @@
+{
+    "database": {
+        "location": "data_store",
+        "port": "27017"
+    }
+}

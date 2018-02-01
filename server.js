@@ -1,12 +1,23 @@
+// Global
+require("babel-register")
+global._ = require('underscore')
+global.path = require("path")
+global.async = require('async')
+global.config = require('./config/env/' + process.env.NODE_ENV)
+
+/* load environment variables from .env file
+var dotenv = require('dotenv');
+dotenv.load();*/
+
+
 console.log("Setting up Authorization")
 
-//require("babel-register")
-var path = require("path")
 var express = require("express")
-global.appRoot = path.resolve(__dirname)
+global.appRoot = global.path.resolve(__dirname)
 var app = express();
+var dbconn = `mongodb://${global.config.database.location}:${global.config.database.port}/users`
 
-require("./config/mongoose")("mongodb://172.17.0.2:27017/users") //data_store, 172.17.0.2
+require("./config/mongoose")(dbconn)
 require("./config/express")(app)
 require("./config/passport")()
 require("./config/routes/routes.js")(app)

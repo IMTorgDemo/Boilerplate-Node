@@ -82,6 +82,15 @@ con = 'mongodb://<containerName>:27017/users'
 
 
 
+### Useful Docker commands
+
+```
+$ docker system prune
+
+```
+
+
+
 
 
 

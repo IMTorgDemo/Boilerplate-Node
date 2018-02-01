@@ -1,12 +1,3 @@
-/* Global
-global._ = require('underscore')
-global.async = require('async')
-global.config = require('./config/env/' + process.env.NODE_ENV)
-
-// load environment variables from .env file
-var dotenv = require('dotenv');
-dotenv.load();*/
-
 // Local
 var express = require("express")
 var expressSession = require("express-session")
@@ -29,9 +20,9 @@ module.exports = function(app) {
     app.engine('handlebars', hbs.engine);
     app.set('view engine', 'handlebars');
 
-    var public = path.join(__dirname, '..', 'public')
-    console.log(`Static files served from: ${public}`)
-    app.use(express.static(public));
+    var publicDir = path.join(__dirname, '..', 'public')
+    console.log(`Static files served from: ${publicDir}`)
+    app.use(express.static(publicDir));
 
     app.use(logger('dev'))
     app.use(cookieParser())

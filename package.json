@@ -4,15 +4,17 @@
   "description": "Describes a different way to layout directories and files for Node app",
   "main": "server.js",
   "scripts": {
-    "start-dev": "NODE_ENV=development nodemon server.js",
+    "start": "NODE_ENV=production server.js",
     "start-local": "NODE_ENV=local nodemon server.js",
+    "start-dev": "NODE_ENV=development nodemon server.js",
+    "docker": "sudo docker build -t node_app . ; sudo docker run --name web_app --link data_store:mongo -d node_app",
     "test": "mocha",
-    "test-special": "mocha --grep 'SPECIAL' ",
-    "start": "node server.js"
+    "test-special": "mocha --grep 'SPECIAL' "
   },
   "author": "Jason Beach",
   "license": "MIT",
   "dependencies": {
+    "async": "^2.6.0",
     "babel-register": "^6.26.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
@@ -25,7 +27,8 @@
     "morgan": "^1.9.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "nodemon": "^1.14.11",
