@@ -4,4 +4,13 @@
 <div class="text-center">
     <h1>Wow - Mr. {{messages}}, you're sudo Admin!</h1>
     <p>Very impressive, to be sure.</p>
+    <div class="form-signin">
+        <button class="btn btn-lg btn-primary btn-block" id="mySubmit">Log out</button>
+    </div>
 </div>
+<!--redirect-->
+<script type="text/javascript">
+    document.getElementById("mySubmit").onclick = function () {
+        location.href = "/logout";
+    };
+</script>
