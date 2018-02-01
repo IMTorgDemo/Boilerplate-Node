@@ -50,19 +50,19 @@ module.exports = function(app) {
             roles: req.body.role
         }
         User.findOne({ userName: req.body.username }, function(err, chkuser) {
-            console.log(chkuser)
             if (err) {
                 console.log(err)
             }
             if (chkuser) {
                 res.render("signup", { messages: "email already exists" })
             }
-            if (chkuser == null) {
+            if (chkuser == null | chkuser == undefined) {
+                console.log(data)
                 User.create(data, function(err, user) {
                     if (err) {
                         return next(err)
                     } else {
-                        return res.redirect("login")
+                        res.redirect("/login")
                     }
                 })
             }
@@ -71,7 +71,6 @@ module.exports = function(app) {
 
     router.get("/login", function(req, res) {
         var message = req.flash("error")[0] //possible errors from authentication
-        console.log(message)
         if (message) {
             res.render("login", { messages: message })
         } else {

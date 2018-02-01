@@ -20,8 +20,13 @@
         <input id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="" type="email" name="username">
         <label for="inputPassword" class="sr-only">Password</label>
         <input id="inputPassword" class="form-control" placeholder="Password" required="" type="password" name="password">
-        <label for="role" class="sr-only">Role</label>
-        <input id="role" class="form-control" placeholder="Roles" required="" type="role" name="role">
+        <label for="role">Select Role:</label>
+        <select class="dropdown" id="role" type="role" name="role">
+            <option>user</option>
+            <option>minion</option>
+            <option>client</option>
+            <option>admin</option>
+        </select>
         <div class="checkbox mb-3">
             <label>
                 <input value="remember-me" type="checkbox"> Remember me
