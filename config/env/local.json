@@ -1,6 +1,7 @@
 {
     "database": {
         "location": "data_store",
-        "port": "27017"
+        "port": "27017",
+        "db": "AccountsDb"
     }
 }

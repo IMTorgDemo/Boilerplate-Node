@@ -21,6 +21,8 @@ $ nvm install 8.9.4
 $ node -v
 ```
 
+Seed the database with test data `$ node database/dbSeeder.js`
+
 You can then build and run the Docker image
 
 ```
@@ -29,6 +31,8 @@ $ docker images
 $ docker run -it --rm --name mevn-app mevn-boiler
 $ docker ps -a
 ```
+
+or just use `$ npm run start-local`
 
 `??? DOCKER COMPOSE ???`[ref](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-14-04)
 

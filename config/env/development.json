@@ -1,6 +1,7 @@
 {
     "database": {
         "location": "172.17.0.2",
-        "port": "27017"
+        "port": "27017",
+        "db": "AccountsDb"
     }
 }

@@ -15,7 +15,7 @@ console.log("Setting up Authorization")
 var express = require("express")
 global.appRoot = global.path.resolve(__dirname)
 var app = express();
-var dbconn = `mongodb://${global.config.database.location}:${global.config.database.port}/users`
+var dbconn = `mongodb://${global.config.database.location}:${global.config.database.port}/${global.config.database.db}`
 
 require("./config/mongoose")(dbconn)
 require("./config/express")(app)
