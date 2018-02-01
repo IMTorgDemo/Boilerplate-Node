@@ -1,6 +1,8 @@
 var passport = require("passport")
 var express = require("express")
 
+
+// middleware to check authentication of url
 var checkAuthentication = function(req, res, next) {
     if (req.isAuthenticated())
         return next()
@@ -17,10 +19,10 @@ module.exports = function(app) {
     })
 
     router.get("/login", function(req, res) {
-        var message = req.flash("error")[0]
+        var message = req.flash("error")[0] //possible errors from authentication
         console.log(message)
         if (message) {
-            res.render("login", { message: message })
+            res.render("login", { messages: message })
         } else {
             res.render("login")
         }
@@ -35,8 +37,13 @@ module.exports = function(app) {
         res.render("home")
     })
 
+    router.get("/secret", checkAuthentication, function(req, res) {
+        var message = req.user.firstName
+        res.render("secret", { messages: message })
+    })
+
     router.post("/login", passport.authenticate('login', {
-        successRedirect: "/home",
+        successRedirect: "/secret",
         failureRedirect: "/login",
         failureFlash: true
     }))
