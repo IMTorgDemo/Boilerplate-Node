@@ -3,7 +3,7 @@ FROM node:latest
 
 MAINTAINER Jason Beach
 
-ENV NODE_ENV=local 
+#ENV NODE_ENV=local 
 ENV PORT=3456
 
 #COPY      . /var/www
