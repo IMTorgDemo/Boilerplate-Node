@@ -12,7 +12,8 @@ var userSchema = new Schema({
     firstName: 'string',
     lastName: 'string',
     userName: 'string',
-    password: 'string'
+    password: 'string',
+    roles: ['string']
 })
 
 module.exports = mongoose.model("User", userSchema)

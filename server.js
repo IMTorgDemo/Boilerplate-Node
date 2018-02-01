@@ -21,6 +21,7 @@ require("./config/mongoose")(dbconn)
 require("./config/express")(app)
 require("./config/passport")()
 require("./config/routes/routes.js")(app)
+require("./config/routes/secureRoutes.js")(app)
 
 var port = 3456;
 app.listen(port, function() {

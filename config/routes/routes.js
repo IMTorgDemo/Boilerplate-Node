@@ -37,21 +37,12 @@ module.exports = function(app) {
         res.render("home")
     })
 
-    router.get("/secret", checkAuthentication, function(req, res) {
-        var message = req.user.firstName
-        res.render("secret", { messages: message })
-    })
-
     router.post("/login", passport.authenticate('login', {
-        successRedirect: "/secret",
+        successRedirect: "/users/admin",
         failureRedirect: "/login",
         failureFlash: true
     }))
 
     app.use("/", router)
-
-
-
-
 
 }
